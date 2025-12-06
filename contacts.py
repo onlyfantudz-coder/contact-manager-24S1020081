@@ -49,3 +49,41 @@ def main():
 
         else:
             print("Lựa chọn không hợp lệ!")
+def search_contact(name):
+    found = False
+    for contact in phonebook:
+        if contact['name'].lower() == name.lower():
+            print(f"Tìm thấy: {contact['name']} - {contact['phone']}")
+            found = True
+            break
+
+    if not found:
+        print("Không tìm thấy.")
+def main():
+    while True:
+        print("\n--- Contact Manager ---")
+        print("1. Thêm liên hệ mới")
+        print("2. Hiển thị danh bạ")
+        print("3. Tìm kiếm liên hệ")
+        print("4. Thoát")
+
+        choice = input("Chọn chức năng: ")
+
+        if choice == '1':
+            name = input("Nhập tên: ")
+            phone = input("Nhập số điện thoại: ")
+            add_contact(name, phone)
+
+        elif choice == '2':
+            view_contacts()
+
+        elif choice == '3':
+            search_name = input("Nhập tên cần tìm: ")
+            search_contact(search_name)
+
+        elif choice == '4':
+            print("Tạm biệt!")
+            break
+
+        else:
+            print("Lựa chọn không hợp lệ!")
